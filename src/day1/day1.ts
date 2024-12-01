@@ -7,25 +7,20 @@ export const findSumOfDistances = (lines: string[]): number => {
     let secondList: number[] = [];
     let distancesList: number[] = [];
 
-    // Populate unsorted lists
     lines.forEach((line) => {
         const numbers = line.match(/\d+/g);
         if (numbers?.[0]) firstList.push(parseInt(numbers[0], 10)); 
         if (numbers?.[1]) secondList.push(parseInt(numbers[1], 10)); 
     });
     
-    //Sort the lists
     const sortedFirstList = firstList
         .sort((a, b) => b - a);
     
     const sortedSecondList = secondList
         .sort((a, b) => b - a);
     
-
-    //Define max length
     const listLength = Math.min(sortedFirstList.length, sortedSecondList.length);
     
-    //Populate distances
     for (let i = 0; i < listLength; i++) {
         const distance = Math.abs(sortedFirstList[i] - sortedSecondList[i]); 
         distancesList.push(distance);
@@ -42,25 +37,21 @@ export const findSimilarityScore = (lines: string[]): number => {
     let secondList: number[] = [];
     let similaritiesList: number[] = [];
 
-    // Populate unsorted lists
     lines.forEach((line) => {
         const numbers = line.match(/\d+/g);
         if (numbers?.[0]) firstList.push(parseInt(numbers[0], 10)); 
         if (numbers?.[1]) secondList.push(parseInt(numbers[1], 10)); 
     });
 
-    //Define max length
     const listLength = Math.min(firstList.length, secondList.length);
     
-    //Populate similarity scores
     for (let i = 0; i < listLength; i++) {
         let similarity = 0;
 
         secondList.forEach((num) => {
             if (num === firstList[i]) {
                 similarity++;
-            }
-        
+            } 
         });
         let similarityScore = similarity * firstList[i];
         similaritiesList.push(similarityScore);
