@@ -1,19 +1,34 @@
+import { describe, it, expect } from 'vitest';
+import { findSumOfDistances } from './day1';
+import { findSimilarityScore } from './day1';
 
-import * as extensions from '../utility/extensions';
-import { test, describe, expect } from 'vitest'
-import { readTestData } from '../utility/fileHelper';
-import { exampleFunction } from './day1';
 
-extensions.apply();
+describe('findSumOfDistances', () => {
+    it('should sum the values in the list of distances', () => {
+        const input = [
+            '3   4',
+            '4   3',
+            '2   5',
+            '1   3',
+            '3   9',
+            '3   3'
+        ];
+        const result = findSumOfDistances(input);
+        expect(result).toBe(11);
+    });
+});
 
-describe('day 1 - part1', () => {
-    test('sample', () => {
-        expect(exampleFunction('1')).toBe(1);
-    })
-
-    test('part1', () => {
-        const data = readTestData('./src/day1/day1.txt');
-        const sum = data.map(line => exampleFunction(line)).sum();
-        expect(sum).toBe(6);
-    })
-})
+describe('findSimilarityScore', () => {
+    it('should sum the scores in the list of similarity scores', () => {
+        const input = [
+            '3   4',
+            '4   3',
+            '2   5',
+            '1   3',
+            '3   9',
+            '3   3'
+        ];
+        const result = findSimilarityScore(input);
+        expect(result).toBe(31);
+    });
+});
