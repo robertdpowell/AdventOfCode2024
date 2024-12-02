@@ -1,6 +1,6 @@
 import { readTestData } from '../utility/fileHelper';
 
-const isLineSafe = (numbers: number[]): boolean => {
+export const isLineSafe = (numbers: number[]): boolean => {
     const first = numbers[0];
     const second = numbers[1];
 
@@ -54,7 +54,8 @@ export const findToleratedReports = (lines: string[]): number => {
         // Ignore safe lines
         if (!isLineSafe(numbers)) {
             for (let i = 0; i < numbers.length; i++) {
-                // needed help with this bit
+                
+                // needed help with this bit!
                 const variation = numbers.filter((_, index) => index !== i);
 
                 // Check if the variation is safe
