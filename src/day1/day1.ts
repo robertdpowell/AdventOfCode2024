@@ -1,6 +1,5 @@
 import { readTestData } from '../utility/fileHelper';
 
-
 //Part 1
 export const findSumOfDistances = (lines: string[]): number => {
     let firstList: number[] = [];
